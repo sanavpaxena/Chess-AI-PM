@@ -1,0 +1,354 @@
+{
+  "positions": [
+    {
+      "fen": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
+      "theme": "opening_principles",
+      "commentary": "In the opening, developing pieces and controlling the center are paramount. Many beginners make the mistake of pushing too many pawns early on instead of developing knights and bishops. The key principle is: develop your pieces to active squares, castle early for king safety, and connect your rooks. Neglecting development can lead to a cramped position where your pieces get in each other's way.",
+      "source": "Classical Opening Principles — Capablanca",
+      "tags": ["opening", "development", "center_control", "piece_activity"]
+    },
+    {
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+      "theme": "king_safety",
+      "commentary": "The Italian Game position highlights the importance of king safety. White has developed both a knight and bishop while targeting the vulnerable f7 square — the weakest point in Black's position since it's only defended by the king. Players at the intermediate level often forget that f7 (for Black) and f2 (for White) are critical squares to defend. Always be aware of attacks on these squares, especially in the opening.",
+      "source": "Italian Game — Greco Analysis, 1620",
+      "tags": ["king_safety", "f7_weakness", "tactical_vulnerability", "opening"]
+    },
+    {
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 2",
+      "theme": "kingside_weakening",
+      "commentary": "Moving the f-pawn and g-pawn early creates dangerous weaknesses around the king. This pawn structure removes key defenders from the kingside and opens diagonals pointing directly at the king. The famous game Fool's Mate (1.f3 e5 2.g4 Qh4#) demonstrates the extreme case. Even when checkmate isn't immediate, such pawn moves invite powerful attacks. The lesson: avoid moving pawns in front of your castled king without a very good reason.",
+      "source": "Fool's Mate Pattern — Classical Studies",
+      "tags": ["kingside_attack", "pawn_structure", "king_safety", "opening_blunder"]
+    },
+    {
+      "fen": "r1bqkb1r/pppppppp/2n2n2/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 2 3",
+      "theme": "center_control",
+      "commentary": "Control of the center — especially the e4, d4, e5, and d5 squares — is one of the most fundamental principles in chess. Pieces placed in or controlling the center have more mobility and flexibility. A common blunder at the intermediate level is giving up central control without compensation. When your opponent occupies the center with pawns, your pieces get pushed to passive positions on the edges of the board.",
+      "source": "My System — Aron Nimzowitsch, 1925",
+      "tags": ["center_control", "pawn_structure", "strategic", "middlegame"]
+    },
+    {
+      "fen": "r1bqkbnr/pppppppp/2n5/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 2 2",
+      "theme": "piece_development",
+      "commentary": "Every tempo matters in the opening. A 'tempo' is essentially one move, one unit of time. When you develop a piece to a square and then move it again without good reason, you lose a tempo — your opponent gains an extra move of development. This is why grandmasters emphasize developing each piece once to its ideal square. Common tempo-losing mistakes include moving the queen too early (where it can be chased by opponent's developing moves) or moving the same piece twice.",
+      "source": "Logical Chess, Move by Move — Irving Chernev, 1957",
+      "tags": ["development", "tempo", "piece_activity", "opening"]
+    },
+    {
+      "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
+      "theme": "pin_tactics",
+      "commentary": "A pin is one of the most powerful tactical motifs in chess. It occurs when a piece cannot move because doing so would expose a more valuable piece behind it to capture. In this Nimzo-Indian position, Black's bishop on b4 pins White's knight on c3 to the king. The pinned piece is essentially paralyzed. Understanding pins is crucial because they create long-term pressure that can force concessions. The defender of a pin must either break the pin, add more defenders, or find a tactical counter-blow.",
+      "source": "Nimzo-Indian Defense — Classical Variation",
+      "tags": ["pin", "tactics", "piece_activity", "opening"]
+    },
+    {
+      "fen": "r1bqk2r/ppp2ppp/2n2n2/2bpp3/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq - 0 5",
+      "theme": "castling_importance",
+      "commentary": "Castling is not just about moving the king — it's about connecting your rooks and activating them for the middlegame. Players who delay castling often find their king stuck in the center, vulnerable to attacks along open files and diagonals. A common intermediate-level mistake is getting distracted by tactical operations while the king remains uncastled. The rule of thumb: if you can castle, seriously consider doing it, especially if the center is open or likely to open.",
+      "source": "The Life and Games of Mikhail Tal, 1997",
+      "tags": ["castling", "king_safety", "rook_activation", "middlegame"]
+    },
+    {
+      "fen": "r2qk2r/ppp1bppp/2n2n2/3pp1B1/2B1P1b1/3P1N2/PPP2PPP/RN1Q1RK1 b kq - 5 6",
+      "theme": "discovered_attack",
+      "commentary": "A discovered attack occurs when one piece moves out of the way, revealing an attack by another piece behind it. This is one of the most devastating tactical patterns because it effectively gives you two attacks in one move. The moving piece can capture, check, or create a threat while the piece behind it simultaneously attacks something else. When you spot a battery (two pieces lined up on the same file, rank, or diagonal with an opponent's piece in between), always look for discovered attack possibilities.",
+      "source": "Combinational Motifs — Maxim Blokh",
+      "tags": ["discovered_attack", "tactics", "double_attack", "middlegame"]
+    },
+    {
+      "fen": "r1bq1rk1/pppn1ppp/4pn2/3p4/1bPP4/2NBPN2/PP3PPP/R1BQ1RK1 b - - 5 7",
+      "theme": "pawn_structure",
+      "commentary": "Pawn structure is the skeleton of your position. Unlike pieces, pawns cannot move backwards, so every pawn move is permanent. Common pawn structure mistakes include: creating isolated pawns (no friendly pawns on adjacent files to support them), doubled pawns (two pawns on the same file), and backward pawns (a pawn that can't be protected by other pawns and can't advance safely). Understanding pawn structures helps you create long-term plans rather than playing move-by-move.",
+      "source": "Pawn Structure Chess — Andrew Soltis, 1976",
+      "tags": ["pawn_structure", "strategic", "isolated_pawn", "positional"]
+    },
+    {
+      "fen": "rnb1k1nr/pppp1ppp/8/4p3/1b2P1Qq/8/PPPP1PPP/RNB1KBNR b KQkq - 0 3",
+      "theme": "queen_early_development",
+      "commentary": "Bringing the queen out too early is one of the most common beginner and intermediate mistakes. While the queen is the most powerful piece, early in the game it becomes a target for your opponent's developing pieces. Every time your opponent develops a piece with a tempo gain (attacking your queen), they improve their position while you waste time retreating. The queen should typically come out after minor pieces are developed and the king is safely castled.",
+      "source": "Winning Chess Tactics — Yasser Seirawan",
+      "tags": ["queen_early", "development", "tempo_loss", "opening_blunder"]
+    },
+    {
+      "fen": "2kr3r/ppp2ppp/2n1bn2/4p1B1/2B1Pq2/2NP1N2/PPP2PPP/R2Q1RK1 w - - 0 10",
+      "theme": "back_rank_weakness",
+      "commentary": "The back-rank mate is one of the most common tactical patterns at all levels. It occurs when a king is trapped on the back rank by its own pawns (usually with no escape square on the second rank) and a rook or queen delivers checkmate along that rank. Prevention is simple: create a 'luft' (breathing room) for your king by advancing one of the pawns in front of it (typically h3/h6 or g3/g6). Many games at the 1000-1500 level are decided by back-rank tactics.",
+      "source": "Back-Rank Combinations — Various",
+      "tags": ["back_rank", "tactics", "king_safety", "checkmate_pattern"]
+    },
+    {
+      "fen": "r1b1k2r/ppppqppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQR1K1 b kq - 5 6",
+      "theme": "fork_tactics",
+      "commentary": "A fork is a tactic where a single piece attacks two or more enemy pieces simultaneously. Knights are the most common forking pieces because they can attack in eight directions and cannot be blocked. The classic knight fork targets the king and queen (or king and rook). To defend against forks, always be mindful of squares where an opponent's knight could land and attack multiple pieces. Before making a move, check: 'Can my opponent fork any of my pieces on the next move?'",
+      "source": "Chess Tactics for Beginners — Various",
+      "tags": ["fork", "knight_fork", "tactics", "double_attack"]
+    },
+    {
+      "fen": "r2q1rk1/pp2bppp/2n1pn2/2pp4/3P1B2/2PBPN2/PP3PPP/R2Q1RK1 b - - 0 9",
+      "theme": "skewer_tactics",
+      "commentary": "A skewer is the reverse of a pin — a more valuable piece is attacked first, and when it moves, the less valuable piece behind it is captured. Bishops and rooks are the typical skewer pieces since they attack along lines. The most devastating skewer is when a rook or bishop attacks the king, forcing it to move, and then captures the queen (or another valuable piece) behind it. Always be careful about aligning your valuable pieces on the same diagonal, rank, or file.",
+      "source": "Winning Chess Tactics — Yasser Seirawan",
+      "tags": ["skewer", "tactics", "line_attack", "piece_vulnerability"]
+    },
+    {
+      "fen": "r4rk1/pp2ppbp/2np1np1/q1p5/2PPP3/2N2NP1/PP2PPBP/R1BQ1RK1 w - - 0 9",
+      "theme": "overloaded_piece",
+      "commentary": "An overloaded piece is one that has too many defensive duties. When a single piece is responsible for defending two or more targets, an attacker can exploit this by threatening one target, forcing the defender to choose which one to protect — inevitably abandoning the other. Recognizing overloaded pieces (both your own and your opponent's) is a crucial tactical skill. In your own position, try to share defensive duties between multiple pieces rather than relying on one piece for everything.",
+      "source": "The Art of Attack in Chess — Vladimir Vukovic, 1965",
+      "tags": ["overloaded", "tactics", "defensive_weakness", "middlegame"]
+    },
+    {
+      "fen": "r1b2rk1/2q1bppp/p2p1n2/np2p3/3PP3/2N1BN1P/PPB2PP1/R2Q1RK1 w - - 0 12",
+      "theme": "space_advantage",
+      "commentary": "Space advantage occurs when one side controls more territory on the board, usually through advanced pawns. Having more space means your pieces have more room to maneuver while your opponent's pieces are cramped. However, overextension is a real danger — if you push pawns too far without proper support, they can become weak targets. The key is to use your space to gradually improve your piece positions before launching an attack. Patience is essential when you have a space advantage.",
+      "source": "Understanding Chess Middlegames — John Nunn, 2011",
+      "tags": ["space", "strategic", "pawn_advance", "positional"]
+    },
+    {
+      "fen": "8/pp3ppk/2p2q1p/4r3/4P3/1P3QP1/P4P1P/4R1K1 w - - 0 28",
+      "theme": "endgame_rook_activity",
+      "commentary": "In rook endgames — the most common type of endgame — rook activity is often more important than material. An active rook on the seventh rank (the opponent's second rank) can wreak havoc, attacking pawns and restricting the enemy king. The principle 'rooks belong behind passed pawns' (whether your own or your opponent's) is one of the most important endgame rules. A passive rook defending a pawn is almost always inferior to an active rook creating threats.",
+      "source": "Rook Endgames — Levenfish and Smyslov",
+      "tags": ["endgame", "rook_activity", "seventh_rank", "passed_pawn"]
+    },
+    {
+      "fen": "8/5ppk/4p2p/3pP3/R2P2PP/4K3/5r2/8 b - - 0 35",
+      "theme": "king_activity_endgame",
+      "commentary": "In the endgame, the king transforms from a piece that needs protection to an active fighting piece. 'The king is a strong piece — use it!' is a famous endgame maxim. A centralized king in the endgame can support pawn advances, control key squares, and even participate in attacks against the opponent's pawns. Many intermediate players make the mistake of keeping their king in the corner during the endgame, when it should be actively marching towards the center and the action.",
+      "source": "Fundamental Chess Endings — Müller and Lamprecht",
+      "tags": ["endgame", "king_activity", "centralization", "pawn_endgame"]
+    },
+    {
+      "fen": "r1bq1rk1/pp3ppp/2nbpn2/3p4/2PP4/2N1PN2/PPB2PPP/R1BQ1RK1 w - - 0 8",
+      "theme": "piece_coordination",
+      "commentary": "Piece coordination — having your pieces work together harmoniously — is what separates strong players from intermediate ones. Individual pieces have limited power, but when they support each other, their combined effect is much greater. Knights and bishops complement each other well: the bishop controls diagonals while the knight covers squares the bishop cannot reach. Rooks are strongest when doubled on the same file or coordinated on adjacent files. Before making a move, ask: 'Does this move improve how my pieces work together?'",
+      "source": "Think Like a Grandmaster — Alexander Kotov, 1971",
+      "tags": ["coordination", "piece_harmony", "strategic", "middlegame"]
+    },
+    {
+      "fen": "rnbqk2r/ppppppbp/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
+      "theme": "fianchetto",
+      "commentary": "The fianchetto (developing a bishop to g2 or b2 for White, g7 or b7 for Black) is a powerful setup that controls the long diagonal. A fianchettoed bishop is often a key defensive and attacking piece. However, if this bishop is exchanged, the dark squares (or light squares) around the king can become critically weak — the 'holes' left behind cannot be easily covered. This is why exchanging a fianchettoed bishop is often a major strategic decision.",
+      "source": "King's Indian Defense Studies",
+      "tags": ["fianchetto", "bishop", "king_safety", "pawn_structure"]
+    },
+    {
+      "fen": "r2q1rk1/1b2bppp/p1n1pn2/1p6/3P4/1BN1PN2/PPB2PPP/R2Q1RK1 w - - 0 11",
+      "theme": "weak_squares",
+      "commentary": "Weak squares (also called 'holes') are squares that can no longer be defended by pawns. Once a pawn has advanced past a square, that square becomes permanently weak because pawns cannot move backwards. Experienced players constantly look for weak squares in their opponent's position to plant knights (which thrive on outpost squares) or to use as invasion routes for heavier pieces. Avoid creating weak squares in your own position, especially around your king.",
+      "source": "Strategic Play — Mark Dvoretsky",
+      "tags": ["weak_squares", "outpost", "strategic", "positional"]
+    },
+    {
+      "fen": "r1b2rk1/ppqn1ppp/2pbpn2/8/2PP4/2NBPN2/PPQ2PPP/R1B2RK1 b - - 7 9",
+      "theme": "minority_attack",
+      "commentary": "A minority attack is an advanced strategic concept where you advance pawns on the side where you have fewer pawns to create weaknesses in the opponent's pawn structure. For example, advancing a b-pawn and a-pawn against the opponent's three queenside pawns can force exchanges that leave the opponent with isolated or backward pawns. This is a common plan in the Queen's Gambit Declined. Recognizing when to start a minority attack versus a kingside attack is a key strategic skill.",
+      "source": "Pawn Structure Chess — Andrew Soltis",
+      "tags": ["minority_attack", "pawn_structure", "strategic", "queenside_play"]
+    },
+    {
+      "fen": "rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N2N2/PP2BPPP/R1BQK2R b KQ - 4 5",
+      "theme": "pawn_break",
+      "commentary": "A pawn break is an advance designed to open lines, challenge the opponent's pawn center, or create tactical opportunities. Common pawn breaks include ...c5 in the Sicilian, ...d5 in the King's Indian, and c4 in the English structures. Timing the pawn break correctly is crucial — too early and you might not be prepared for the resulting open position; too late and your opponent may solidify their center. Before executing a pawn break, ensure your pieces are ready to exploit the open lines it creates.",
+      "source": "Understanding Pawn Play in Chess — Marovic",
+      "tags": ["pawn_break", "center_play", "dynamic", "middlegame"]
+    },
+    {
+      "fen": "5rk1/pp3ppp/3b4/2pPn3/2P5/1P2PN2/PB3PPP/3R2K1 b - - 0 20",
+      "theme": "outpost",
+      "commentary": "An outpost is a square that is protected by a pawn and cannot be attacked by enemy pawns. Knights are particularly effective on outpost squares because they cannot be chased away by pawns and from a central outpost, a knight controls up to eight squares. The strongest outposts are on the 4th, 5th, or 6th rank in the center or near the opponent's king. When planning your middlegame strategy, always look for potential outpost squares for your knights — they can become dominant pieces that tie down your opponent's forces.",
+      "source": "My System — Aron Nimzowitsch",
+      "tags": ["outpost", "knight", "strategic", "positional", "piece_placement"]
+    },
+    {
+      "fen": "r4rk1/1bq1bppp/p1n1pn2/1pppP3/3P4/P1NBBN2/1PQ2PPP/R4RK1 b - - 0 13",
+      "theme": "closed_position",
+      "commentary": "In closed positions (where the center is locked by pawns), knights are generally superior to bishops because they can hop over the pawn chains while bishops are blocked by them. The strategic plan in closed positions often involves maneuvering pieces to better squares, preparing pawn breaks, and looking for outposts for knights. Patience is key — forcing play in a closed position usually backfires. Instead, improve your worst-placed piece with every move until the position is ripe for a breakthrough.",
+      "source": "Understanding Chess Middlegames — John Nunn",
+      "tags": ["closed_position", "knight_vs_bishop", "strategic", "maneuvering"]
+    },
+    {
+      "fen": "r1b2rk1/pp3ppp/1qn1p3/3pP3/1b1P4/2NB1N2/PP3PPP/R1BQ1RK1 w - - 2 10",
+      "theme": "open_position_bishop",
+      "commentary": "In open positions with few pawn chains, bishops become exceptionally powerful because their range increases dramatically along open diagonals. The bishop pair (having both bishops) in an open position is considered a significant advantage because together they control squares of both colors. When you have bishops, try to open the position; when your opponent has bishops, try to close it. This bishop-versus-knight strategic battle is one of the most fundamental decisions in chess middlegames.",
+      "source": "Secrets of Modern Chess Strategy — John Watson",
+      "tags": ["open_position", "bishop_pair", "strategic", "piece_evaluation"]
+    },
+    {
+      "fen": "8/8/4kpp1/3p1b2/p2P1P2/2P1K1P1/1P6/5B2 w - - 0 40",
+      "theme": "opposition",
+      "commentary": "The opposition is the most important concept in king and pawn endgames. Two kings are 'in opposition' when they stand on the same file or rank with one square between them. The player NOT having to move has 'the opposition' — an advantage because the opposing king must step aside, allowing penetration. Having the opposition can be the difference between winning and drawing. In king and pawn endgames, always consider who has the opposition when calculating your king's march.",
+      "source": "Fundamental Chess Endings — Müller and Lamprecht",
+      "tags": ["opposition", "endgame", "king_pawn", "winning_technique"]
+    },
+    {
+      "fen": "1rb3k1/p4ppp/1p1qpn2/3n4/2QP4/P1N1PP2/1P2B1PP/R1B2RK1 b - - 2 16",
+      "theme": "hanging_piece",
+      "commentary": "A hanging piece is an undefended piece that can be captured for free. At the intermediate level, games are won and lost more often by simple tactics (capturing undefended pieces) than by brilliant combinations. Before every move, do a quick scan of the board and ask: 'Are any of my pieces undefended? Can my opponent capture anything for free after I make this move?' This simple habit — the 'blunder check' — is the single most effective way to reduce blunders and gain rating points.",
+      "source": "Rapid Chess Improvement — Michael de la Maza",
+      "tags": ["hanging_piece", "tactics", "undefended", "blunder_prevention"]
+    },
+    {
+      "fen": "r2qr1k1/pp1b1ppp/2n1pn2/2bp4/8/2NBPN2/PPQB1PPP/R3R1K1 w - - 4 12",
+      "theme": "battery",
+      "commentary": "A battery is created when two (or more) pieces of the same type line up on a file, rank, or diagonal, multiplying their combined attacking power. Queen and bishop batteries on diagonals are particularly dangerous against castled kings. Rook batteries (doubled rooks) on open files can create irresistible pressure. When setting up a battery, think about what target you're aiming at. The most effective batteries are those that target weak points in the opponent's position, such as an undefended pawn, a weak back rank, or the king itself.",
+      "source": "The Art of Attack in Chess — Vladimir Vukovic",
+      "tags": ["battery", "tactics", "doubled_rooks", "attacking"]
+    },
+    {
+      "fen": "r1bq1rk1/pp2nppp/2n1p3/3pP3/3P4/P1N2N2/1PQ1BPPP/R1B2RK1 b - - 0 10",
+      "theme": "pawn_chain",
+      "commentary": "A pawn chain is a diagonal line of pawns, each protecting the one in front of it. The base of the pawn chain (the rearmost pawn) is its weakest point because it cannot be defended by another pawn. Nimzowitsch's principle states that you should attack the base of your opponent's pawn chain to undermine the entire structure. If you can force the base pawn to move or capture it, the whole chain collapses. Identifying the base of your opponent's pawn chain is a crucial strategic skill.",
+      "source": "My System — Aron Nimzowitsch",
+      "tags": ["pawn_chain", "pawn_structure", "strategic", "attack_base"]
+    },
+    {
+      "fen": "3r2k1/5pp1/p3p2p/1p6/3P4/1PP2P2/P3r1PP/2R1R1K1 b - - 0 25",
+      "theme": "seventh_rank_rook",
+      "commentary": "A rook on the seventh rank (the second rank from your opponent's perspective) is one of the most powerful configurations in chess. From the seventh rank, a rook attacks pawns that are still on their starting squares and restricts the enemy king to the back rank. Two rooks on the seventh rank ('pigs on the seventh') is often a decisive advantage, as they can create mating threats while gobbling up pawns. When you have an open file, try to penetrate to the seventh rank with your rook.",
+      "source": "My 60 Memorable Games — Bobby Fischer",
+      "tags": ["seventh_rank", "rook_activity", "endgame", "attacking"]
+    },
+    {
+      "fen": "r1bqk2r/ppp2ppp/2n2n2/1B1pp3/1b2P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 4 5",
+      "theme": "exchange_evaluation",
+      "commentary": "Knowing when to exchange pieces is a critical strategic skill. Generally: exchange pieces when you have a material advantage (simplification), exchange your bad pieces for opponent's good pieces, and avoid exchanging when you have a space disadvantage (you need your pieces for counterplay). A common blunder is making an exchange purely because a capture is available, without evaluating whether it helps your position. Always ask: 'Does this exchange improve my position, or my opponent's?'",
+      "source": "Elements of Positional Evaluation — Dan Heisman",
+      "tags": ["exchange", "strategic", "simplification", "piece_evaluation"]
+    },
+    {
+      "fen": "r1b1r1k1/1pq2ppp/p1p2n2/4p1B1/4P3/2NQ4/PPP2PPP/R4RK1 w - - 0 14",
+      "theme": "deflection",
+      "commentary": "Deflection is a tactical motif where you force an opponent's piece away from a critical defensive duty. By attacking the defender, you force it to move, leaving the square or piece it was protecting vulnerable. Deflection is closely related to overloading, but the key difference is that in deflection you physically move the defending piece, while in overloading you add an additional attacking demand. Look for deflection opportunities when a single piece is guarding an important square or another piece.",
+      "source": "Chess Tactics — Various Sources",
+      "tags": ["deflection", "tactics", "defensive_removal", "combination"]
+    },
+    {
+      "fen": "r1bqk2r/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQK2R b KQkq - 0 5",
+      "theme": "tempo_waste",
+      "commentary": "Losing tempo in the opening is one of the primary reasons intermediate players fall behind in development. Every move should serve a purpose: develop a new piece, improve an existing piece's position, or create a meaningful threat. Moving a piece to a square only to move it again one or two moves later is a classic tempo waste. This is especially punishing in the opening, where the player who develops fastest often seizes the initiative and dictates the course of the game.",
+      "source": "Logical Chess, Move by Move — Irving Chernev",
+      "tags": ["tempo", "development", "opening", "initiative"]
+    },
+    {
+      "fen": "2rr2k1/pp2bppp/2n1pn2/q1Pp4/1P1P4/P1NBBN2/5PPP/R2Q1RK1 b - - 0 14",
+      "theme": "prophylaxis",
+      "commentary": "Prophylaxis is the art of preventing your opponent's plans before they happen. Instead of only thinking about your own moves, consider what your opponent wants to do and take steps to prevent it. Petrosian, the 9th World Champion, was the master of prophylaxis — his opponents often felt 'suffocated' because their plans were constantly thwarted. A prophylactic move might look passive but prevents a devastating counter-blow. Before making an attacking move, always check: 'Is there a threat I need to neutralize first?'",
+      "source": "Petrosian's Best Games — Various",
+      "tags": ["prophylaxis", "strategic", "prevention", "defensive"]
+    },
+    {
+      "fen": "6k1/pp3pp1/2p4p/4P3/1P2K3/P1Pb4/5P1P/8 w - - 0 32",
+      "theme": "good_vs_bad_bishop",
+      "commentary": "A 'good' bishop is one whose movement isn't blocked by its own pawns (pawns on the opposite color), while a 'bad' bishop is hemmed in by pawns on the same color squares. In endgames especially, the difference between a good and bad bishop can decide the game. If you have a bishop, try to place your pawns on the opposite color to keep diagonals open. If your opponent has a bad bishop, try to keep the position closed on that bishop's color to make it even worse.",
+      "source": "Silman's Complete Endgame Course — Jeremy Silman",
+      "tags": ["good_bishop", "bad_bishop", "endgame", "pawn_structure", "positional"]
+    },
+    {
+      "fen": "r3k2r/pp3ppp/2pb1n2/3np3/3NP1qb/3B4/PPP2PPP/RNBQ1RK1 w kq - 0 9",
+      "theme": "tactical_vulnerability",
+      "commentary": "When multiple tactical motifs converge in a position — undefended pieces, exposed king, pieces on the same diagonal or file — tactical storms can break out. The best players have an intuition for when a position is 'ripe' for tactics. Key warning signs: your king is in the center while the opponent has developed pieces, you have multiple undefended pieces, or there are open lines pointing at your king. When you see these signs, shift from strategic thinking to pure calculation.",
+      "source": "How to Reassess Your Chess — Jeremy Silman",
+      "tags": ["tactical_storm", "vulnerability", "calculation", "pattern_recognition"]
+    },
+    {
+      "fen": "8/pp2kppp/4p3/2Pp4/1P1P4/4KP2/P5PP/8 w - - 0 28",
+      "theme": "passed_pawn",
+      "commentary": "A passed pawn — one that has no enemy pawns blocking or able to capture it on its way to promotion — is one of the most valuable assets in an endgame. Nimzowitsch said: 'A passed pawn is a criminal, which should be kept under lock and key. Mild measures, such as police surveillance, are not sufficient.' The power of a passed pawn is that it forces the opponent to dedicate pieces to stopping its advance, tying down their forces. Support your passed pawns with your king and other pieces, and push them forward at the right moment.",
+      "source": "My System — Aron Nimzowitsch",
+      "tags": ["passed_pawn", "endgame", "promotion", "pawn_advance"]
+    },
+    {
+      "fen": "r1b1k2r/ppppqppp/2n2n2/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K2R w KQkq - 4 4",
+      "theme": "scholar_mate_pattern",
+      "commentary": "The Scholar's Mate (1.e4 e5 2.Qh5/Bc4 with Qxf7#) is the first checkmate pattern most players learn, but the defensive lessons it teaches are valuable at all levels: always be aware of attacks on f7/f2, don't ignore threats to checkmate, and develop pieces to squares that serve both attack and defense. While the Scholar's Mate itself is easily refuted by experienced players, the underlying pattern — diagonal and queen attacks on the f-pawn — appears in many different forms throughout chess.",
+      "source": "Checkmate Patterns — Various",
+      "tags": ["scholars_mate", "checkmate_pattern", "f7_attack", "opening_trap"]
+    },
+    {
+      "fen": "rnbq1rk1/pppp1ppp/4pn2/8/1bPP4/2N1P3/PP3PPP/R1BQKBNR w KQ - 2 4",
+      "theme": "piece_sacrifice",
+      "commentary": "A sacrifice — giving up material for a non-material advantage — is one of the most exciting aspects of chess. But not all sacrifices are sound. Before sacrificing, verify that you have concrete compensation: a sustained attack, significant positional advantage, or a forced sequence leading to material recovery. Speculative sacrifices (where you hope something will work out) are risky. At the intermediate level, it's better to accept material than to sacrifice unless you can calculate to a clear advantage.",
+      "source": "Art of Sacrifice in Chess — Rudolf Spielmann",
+      "tags": ["sacrifice", "tactics", "compensation", "attacking"]
+    },
+    {
+      "fen": "r1b2rk1/pp1pqppp/2n1pn2/2p5/2PP4/2N1PN2/PPQ2PPP/R1B1KB1R w KQ - 2 7",
+      "theme": "isolated_queen_pawn",
+      "commentary": "The isolated queen's pawn (IQP) — a d-pawn with no pawns on the c-file or e-file — is a double-edged strategic element. On one hand, it controls key central squares (c5 and e5) and provides dynamic piece play. On the other, it's a permanent weakness that can become a target in the endgame. Players with the IQP should seek piece activity and kingside attacks, while opponents should exchange pieces and head for an endgame where the isolated pawn becomes a liability.",
+      "source": "Pawn Structure Chess — Andrew Soltis",
+      "tags": ["isolated_pawn", "pawn_structure", "strategic", "dynamic_play"]
+    },
+    {
+      "fen": "r2qk2r/pppbbppp/2n1p3/3pP2n/3P2P1/2N1BN2/PPP1QP1P/R3KB1R b KQkq g3 0 8",
+      "theme": "pawn_storm",
+      "commentary": "A pawn storm is an aggressive advance of pawns toward the opponent's king, often in opposite-side castling positions. While powerful when executed correctly, a premature pawn storm can backfire badly — the advanced pawns can become weak, and the open lines might benefit the defender more than the attacker. The key to a successful pawn storm: ensure your own king is safe first, have your pieces ready to exploit the open lines, and time the advance to coincide with piece pressure on the target.",
+      "source": "Attack and Defense in Modern Chess — Lev Polugaevsky",
+      "tags": ["pawn_storm", "attacking", "kingside_attack", "opposite_castling"]
+    },
+    {
+      "fen": "r1b1k2r/1pq1bppp/p1nppn2/8/3NPP2/2N1B3/PPPQ2PP/R3KB1R w KQkq - 0 9",
+      "theme": "piece_exchange_simplification",
+      "commentary": "Simplification — exchanging pieces when you have an advantage — is one of the most important and underrated skills in chess. When you're up material, every exchange brings you closer to a won endgame. When you're down material, avoid exchanges and keep the position complex. Many intermediate players miss winning endgames because they allow their opponent to complicate the position instead of cleanly simplifying. The rule is simple: when ahead, trade pieces (not pawns); when behind, keep pieces on and look for complications.",
+      "source": "Endgame Strategy — Mikhail Shereshevsky",
+      "tags": ["simplification", "exchange", "endgame_conversion", "technique"]
+    },
+    {
+      "fen": "r2q1rk1/ppp1bppp/2n1bn2/4p1B1/4P3/2NP1N2/PPP1BPPP/R2QK2R w KQ - 6 7",
+      "theme": "trapped_piece",
+      "commentary": "A trapped piece is one that has no safe squares to retreat to. Trapping a piece effectively wins material because the piece must either be captured or sacrificed. Common trapping patterns include: bishops trapped on the edge of the board after capturing 'poisoned' pawns (e.g., Bxa2 in many openings), knights stuck in corners with no retreat path, and rooks trapped by their own king before castling. Before capturing a pawn deep in your opponent's territory, always check if your piece can safely get back out.",
+      "source": "Win at Chess — Ron Curry",
+      "tags": ["trapped_piece", "tactics", "piece_safety", "retreat"]
+    },
+    {
+      "fen": "rn1q1rk1/pb2bppp/1p2pn2/2ppP3/3P4/2PBBN2/PP1N1PPP/R2Q1RK1 w - - 0 10",
+      "theme": "central_breakthrough",
+      "commentary": "A central breakthrough — pushing a pawn through the center to open lines — is one of the most powerful strategic operations in chess. When you have a central pawn majority and your pieces are well-developed, a central break (like e4-e5 or d4-d5) can blow the position open with devastating effect. The key prerequisites are: piece development must be complete, the breakthrough must not leave your pieces hanging, and you should have more pieces aimed at the center than your opponent.",
+      "source": "The Middlegame — Euwe and Kramer",
+      "tags": ["central_breakthrough", "pawn_break", "dynamic", "attacking"]
+    },
+    {
+      "fen": "2r2rk1/pp2bppp/2n1p3/q2p4/3P1B2/4PN2/PP1NBPPP/R2Q1RK1 b - - 3 12",
+      "theme": "wrong_plan",
+      "commentary": "Choosing the wrong plan is a strategic blunder that's harder to identify than a tactical blunder. Signs you may be pursuing the wrong plan include: your pieces are becoming passive, you're making moves that don't contribute to a clear goal, or you're attacking on one side while your pieces are better suited for the other. Grandmasters often spend significant time not on calculating specific moves, but on choosing the RIGHT plan. Before committing to a plan, evaluate: where are my pieces best placed? Where is my opponent weak?",
+      "source": "Think Like a Grandmaster — Alexander Kotov",
+      "tags": ["planning", "strategic", "positional_judgment", "middlegame"]
+    },
+    {
+      "fen": "r1bq1rk1/1pp1ppbp/p1np1np1/8/2PPP3/2N1BN2/PP2BPPP/R2Q1RK1 b - - 0 8",
+      "theme": "dragon_sicilian_attack",
+      "commentary": "In the Sicilian Dragon, Black fianchettoes the bishop to g7, creating a powerful long diagonal battery. However, White often launches a devastating kingside attack with opposite-side castling, advancing the h-pawn and g-pawn. This creates a critical tactical battle: can White's attack break through before Black's queenside counterplay decides the game? Both sides must play with extreme precision and energy. Slow, passive play by either side is punished severely.",
+      "source": "Sicilian Dragon — David Levy",
+      "tags": ["sicilian_dragon", "opposite_castling", "attacking", "counterplay"]
+    },
+    {
+      "fen": "r2qkb1r/1b1n1ppp/p3pn2/1p6/3PB3/2N2N2/PP2QPPP/R1B2RK1 w kq - 4 10",
+      "theme": "bishop_sacrifice_h7",
+      "commentary": "The classic bishop sacrifice on h7 (Bxh7+ Kxh7, Ng5+ followed by Qh5) is one of the most famous attacking patterns in chess, known as the 'Greek Gift sacrifice.' The key prerequisites for this sacrifice to work are: White must have a knight that can go to g5, the queen must be able to reach h5, and there should be no good defensive resources for Black. Not every Bxh7+ sacrifice works — calculating precisely whether the attack leads to checkmate or sufficient compensation is essential.",
+      "source": "The Art of Attack in Chess — Vladimir Vukovic",
+      "tags": ["sacrifice", "greek_gift", "bxh7", "attacking_pattern", "kingside_attack"]
+    },
+    {
+      "fen": "8/6pp/5pk1/1Pp5/2P5/3K4/6PP/8 w - - 0 38",
+      "theme": "outside_passed_pawn",
+      "commentary": "An outside passed pawn — a passed pawn far from the main pawn mass — is a powerful endgame weapon. Its value lies in its ability to distract the opponent's king: the enemy king must chase the passed pawn to prevent promotion, leaving the rest of the board unguarded. This allows your king to penetrate and capture your opponent's remaining pawns. The concept is beautifully simple but devastatingly effective in king and pawn endgames. Creating an outside passed pawn should be a primary strategic goal when entering the endgame.",
+      "source": "Fundamental Chess Endings — Müller and Lamprecht",
+      "tags": ["outside_passed_pawn", "endgame", "distraction", "king_march"]
+    },
+    {
+      "fen": "r3k2r/pppn1ppp/4b3/3qP3/3p4/3B1N2/PPP2PPP/R2QR1K1 b kq - 1 11",
+      "theme": "exposed_king",
+      "commentary": "An exposed king — one lacking pawn shelter or with open lines leading to it — is a persistent source of tactical danger throughout the game. Even if no immediate checkmate is threatened, an exposed king ties down defensive pieces, limits the player's options, and creates constant tactical vulnerability. When your opponent's king is exposed, look for checks, double attacks, and piece invasions. When your own king is exposed, prioritize safety over material — sometimes giving back material to secure the king is the best practical decision.",
+      "source": "Art of Defense in Chess — Lev Polugaevsky",
+      "tags": ["exposed_king", "king_safety", "defensive_play", "tactical_vulnerability"]
+    },
+    {
+      "fen": "r1b1r1k1/ppq2ppp/2pp1n2/4p3/2P1P3/2N1BP2/PPQN2PP/R4RK1 b - - 0 13",
+      "theme": "zugzwang_concept",
+      "commentary": "Zugzwang is a position where any move a player makes worsens their position — they would prefer to pass if that were allowed. While full zugzwang is rare in the middlegame, the concept of 'mutual zugzwang' appears frequently in endgames, especially king and pawn endings. Understanding zugzwang helps you recognize positions where maintaining the status quo is your opponent's best option — and finding moves that put them in zugzwang can convert drawn positions into wins.",
+      "source": "Dvoretsky's Endgame Manual",
+      "tags": ["zugzwang", "endgame", "compulsion_to_move", "winning_technique"]
+    }
+  ]
+}

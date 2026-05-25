@@ -1,0 +1,360 @@
+/* ============================================
+   Grandmaster.AI — Analytics Dashboard Styles
+   Power BI-inspired dark mode design
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: rgba(26, 26, 46, 0.6);
+  --text-primary: #f0f0f5;
+  --text-secondary: #a0a0b8;
+  --text-muted: #6a6a80;
+  --accent: #7c3aed;
+  --accent-light: #a855f7;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+  --border: rgba(255, 255, 255, 0.06);
+  --font: 'Inter', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --radius: 16px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* ── Dashboard Layout ─────────────────────────── */
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dash-header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.dash-header h1 span {
+  background: linear-gradient(135deg, var(--accent-light), #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.header-meta .badge {
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.live {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+/* ── KPI Row ──────────────────────────────────── */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.kpi-card.purple::before { background: var(--accent); }
+.kpi-card.green::before { background: var(--success); }
+.kpi-card.blue::before { background: var(--info); }
+.kpi-card.orange::before { background: var(--warning); }
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.kpi-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 4px;
+}
+
+.kpi-value.purple { color: var(--accent-light); }
+.kpi-value.green { color: var(--success); }
+.kpi-value.blue { color: var(--info); }
+.kpi-value.orange { color: var(--warning); }
+
+.kpi-change {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kpi-change.up { color: var(--success); }
+.kpi-change.down { color: var(--danger); }
+
+/* ── Chart Grid ──────────────────────────────── */
+.chart-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.chart-grid.two { grid-template-columns: 1fr 1fr; }
+.chart-grid.three { grid-template-columns: 2fr 1fr; }
+.chart-grid.full { grid-template-columns: 1fr; }
+
+.chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.chart-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.chart-card .chart-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  position: relative;
+  height: 280px;
+}
+
+.chart-container.tall {
+  height: 340px;
+}
+
+/* ── A/B Test Results ────────────────────────── */
+.ab-result {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.ab-group {
+  flex: 1;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.ab-group.control {
+  background: rgba(106, 106, 128, 0.1);
+  border: 1px solid rgba(106, 106, 128, 0.2);
+}
+
+.ab-group.treatment {
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+.ab-group .group-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.ab-group .group-value {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.ab-group.control .group-value { color: var(--text-secondary); }
+.ab-group.treatment .group-value { color: var(--accent-light); }
+
+.ab-group .group-detail {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.significance-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+/* ── Retention Table ─────────────────────────── */
+.retention-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.retention-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.retention-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.retention-table .change-positive {
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* ── Revenue Card ────────────────────────────── */
+.revenue-highlight {
+  text-align: center;
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(168,85,247,0.04));
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: 16px;
+  margin-top: 16px;
+}
+
+.revenue-highlight .rev-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.revenue-highlight .rev-value {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, var(--accent-light), #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.revenue-highlight .rev-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* ── Back Link ───────────────────────────────── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-light);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  transition: opacity 0.2s;
+}
+
+.back-link:hover { opacity: 0.7; }
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 900px) {
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .chart-grid.two,
+  .chart-grid.three { grid-template-columns: 1fr; }
+  .ab-result { flex-direction: column; }
+  .dash-header { flex-direction: column; gap: 12px; }
+}
+
+@media (max-width: 600px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .dashboard { padding: 16px; }
+}

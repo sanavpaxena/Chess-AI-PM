@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grandmaster.AI Analytics Dashboard — Simulated A/B test results and engagement metrics for Context-Aware Blunder Recovery">
+  <title>Grandmaster.AI — Analytics Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- Header -->
+  <a href="../prd/index.html" class="back-link">← Back to PRD</a>
+
+  <div class="dash-header">
+    <h1>📊 <span>Grandmaster.AI</span> Analytics</h1>
+    <div class="header-meta">
+      <span class="badge live">● SIMULATED DATA</span>
+      <span>A/B Test · 14-Day Window</span>
+      <span>n = 100,000 users</span>
+    </div>
+  </div>
+
+  <!-- ── KPI Row ────────────────────────────────────────────── -->
+  <div class="kpi-row">
+    <div class="kpi-card purple">
+      <div class="kpi-label">Avg Session Length</div>
+      <div class="kpi-value purple" id="kpi-session">0 min</div>
+      <div class="kpi-change up">↑ +21.3% vs Control</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Feature Adoption Rate</div>
+      <div class="kpi-value green" id="kpi-adoption">0%</div>
+      <div class="kpi-change up">↑ Target: 35%</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Explanation Satisfaction</div>
+      <div class="kpi-value blue" id="kpi-satisfaction">0/5</div>
+      <div class="kpi-change up">↑ Target: 4.0/5</div>
+    </div>
+    <div class="kpi-card orange">
+      <div class="kpi-label">D30 Retention Lift</div>
+      <div class="kpi-value orange" id="kpi-retention">0%</div>
+      <div class="kpi-change up">↑ 26% vs 16% control</div>
+    </div>
+  </div>
+
+  <!-- ── Row 1: A/B Test + Funnel ─────────────────────────── -->
+  <div class="chart-grid two">
+    <!-- A/B Test Results -->
+    <div class="chart-card">
+      <h3>🧪 A/B Test: Average Session Length</h3>
+      <div class="chart-subtitle">Treatment: Standard Analysis + "Explain My Blunder" | Control: Standard Analysis Only</div>
+      <div class="chart-container">
+        <canvas id="sessionLengthChart"></canvas>
+      </div>
+      <div style="margin-top: 16px;">
+        <div class="ab-result">
+          <div class="ab-group control">
+            <div class="group-label">Control</div>
+            <div class="group-value">12.1 min</div>
+            <div class="group-detail">n = 50,000 users</div>
+          </div>
+          <div class="ab-group treatment">
+            <div class="group-label">Treatment</div>
+            <div class="group-value">14.8 min</div>
+            <div class="group-detail">n = 50,000 users</div>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <span class="significance-badge">✅ Statistically Significant (p < 0.001)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Funnel -->
+    <div class="chart-card">
+      <h3>📊 Feature Adoption Funnel</h3>
+      <div class="chart-subtitle">Week 1 simulated data — 100K games completed</div>
+      <div class="chart-container tall">
+        <canvas id="funnelChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Row 2: Daily Engagement ──────────────────────────── -->
+  <div class="chart-grid full">
+    <div class="chart-card">
+      <h3>📈 Daily Feature Usage — 30-Day Trend</h3>
+      <div class="chart-subtitle">"Explain My Blunder" button clicks per day since launch</div>
+      <div class="chart-container">
+        <canvas id="engagementChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Row 3: Retention + Satisfaction ──────────────────── -->
+  <div class="chart-grid two">
+    <!-- Retention Curves -->
+    <div class="chart-card">
+      <h3>🔄 Retention Curves — With vs Without Feature</h3>
+      <div class="chart-subtitle">User retention comparison over 30 days</div>
+      <div class="chart-container">
+        <canvas id="retentionChart"></canvas>
+      </div>
+      <!-- Retention Table -->
+      <table class="retention-table" style="margin-top: 16px;">
+        <thead>
+          <tr>
+            <th>Cohort</th>
+            <th>D1</th>
+            <th>D7</th>
+            <th>D30</th>
+            <th>Lift</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Control</td>
+            <td>58%</td>
+            <td>30%</td>
+            <td>16%</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Treatment</td>
+            <td>68%</td>
+            <td>41%</td>
+            <td>26%</td>
+            <td class="change-positive">+62.5%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Satisfaction Distribution -->
+    <div class="chart-card">
+      <h3>😊 AI Explanation Satisfaction</h3>
+      <div class="chart-subtitle">User ratings of "Explain My Blunder" responses</div>
+      <div class="chart-container">
+        <canvas id="satisfactionChart"></canvas>
+      </div>
+      <div style="text-align: center; margin-top: 12px; color: var(--text-muted); font-size: 13px;">
+        73% of users rated explanations as "Helpful" or better
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Row 4: Conversion + Revenue ─────────────────────── -->
+  <div class="chart-grid three">
+    <!-- Premium Conversion -->
+    <div class="chart-card">
+      <h3>💎 Premium Conversion Rate</h3>
+      <div class="chart-subtitle">Free-to-Premium conversion over 8 weeks</div>
+      <div class="chart-container">
+        <canvas id="conversionChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Revenue Impact -->
+    <div class="chart-card">
+      <h3>💰 Projected Revenue Impact</h3>
+      <div class="chart-subtitle">Annual impact at full rollout</div>
+
+      <div class="revenue-highlight">
+        <div class="rev-label">Projected Annual Revenue Uplift</div>
+        <div class="rev-value">$2.4M</div>
+        <div class="rev-desc">From premium conversion lift alone</div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <table class="retention-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Conversion Lift</td>
+              <td class="change-positive">+2.7pp (2.2% → 4.9%)</td>
+            </tr>
+            <tr>
+              <td>Eligible Users (Monthly)</td>
+              <td>5M free-tier users</td>
+            </tr>
+            <tr>
+              <td>Premium ARPU</td>
+              <td>$9.99/mo</td>
+            </tr>
+            <tr>
+              <td>Incremental Subscribers</td>
+              <td class="change-positive">+135K annually</td>
+            </tr>
+            <tr>
+              <td>Infrastructure Cost</td>
+              <td>~$180K/year (LLM + vector DB)</td>
+            </tr>
+            <tr>
+              <td>Net Impact</td>
+              <td class="change-positive">~$2.2M net annual</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

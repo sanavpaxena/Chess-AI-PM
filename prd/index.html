@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grandmaster.AI Product Requirements Document — Context-Aware Blunder Recovery using RAG for human-readable chess analysis">
+  <title>Grandmaster.AI — Product Requirements Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♟</text></svg>">
+</head>
+<body>
+
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-brand">
+    <span class="logo-icon">♟</span>
+    <span>Grandmaster<span class="dot">.AI</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#strategy" class="active">Strategy</a></li>
+    <li><a href="#technical">Technical</a></li>
+    <li><a href="#evaluation">AI Evaluation</a></li>
+    <li><a href="#gtm">Go-To-Market</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse"></span>
+        Product Requirements Document v1.0
+      </div>
+      <h1>
+        <span class="gradient-text">Grandmaster.AI</span><br>
+        Context-Aware<br>Blunder Recovery
+      </h1>
+      <p class="hero-subtitle">
+        Transforming cryptic engine evaluations into human-readable, 
+        actionable chess insights powered by Retrieval-Augmented Generation.
+      </p>
+      <div class="hero-meta">
+        <span>📅 May 2025</span>
+        <span class="divider"></span>
+        <span>🎯 AI Product Management</span>
+        <span class="divider"></span>
+        <span>📊 Version 1.0</span>
+      </div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value">73%</div>
+          <div class="stat-label">Players hit a plateau</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">-4.5</div>
+          <div class="stat-label">Means nothing to most</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">2.5s</div>
+          <div class="stat-label">Latency budget</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════ SECTION 1: PRODUCT STRATEGY ═══════════════════ -->
+<section id="strategy">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">01 — Product Strategy & Empathy</span>
+      <h2>The "Why" — Starting with the User</h2>
+      <p>AI PMs don't start with the model; they start with the user. Understanding the pain point deeply is what separates a useful feature from a technical demo.</p>
+    </div>
+
+    <!-- Persona -->
+    <div class="card persona-card reveal" style="margin-bottom: 32px;">
+      <div class="persona-avatar">♟</div>
+      <div class="persona-info">
+        <h3>Meet Alex — The Plateau Player</h3>
+        <div class="persona-meta">Intermediate Player · 1000–1500 Elo · 2–3 games/day · Blitz & Rapid</div>
+        <p style="color: var(--text-secondary); font-size: 14px;">
+          Alex has been playing chess for 8 months. After an initial surge from 800 to 1200 Elo, progress has stalled. 
+          Alex uses the post-game analysis tool but sees evaluations like <strong style="color: var(--danger);">"-4.5"</strong> 
+          without understanding <em>why</em> the move was bad or <em>how</em> to avoid it next time.
+          The engine says "Nf6 was a blunder, best was Bd7" — but doesn't explain <em>what Bd7 achieves</em>.
+        </p>
+        <div class="persona-tags">
+          <span class="tag">🎯 1000-1500 Elo</span>
+          <span class="tag green">📈 Growth-Oriented</span>
+          <span class="tag orange">😤 Frustrated by Plateaus</span>
+          <span class="tag blue">📱 Mobile-First</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="problem-callout reveal" style="margin-bottom: 40px;">
+      <div class="callout-label">⚠️ Problem Statement</div>
+      <blockquote>
+        "Users churn when they hit a plateau because traditional engine evaluations 
+        don't provide actionable, human-readable learning. A raw evaluation of -4.5 
+        tells you the position is bad — but not <em>why</em> it's bad, <em>what</em> 
+        you should have done instead, or <em>how</em> to recognize similar patterns in future games."
+      </blockquote>
+    </div>
+
+    <!-- User Journey -->
+    <h3 class="reveal" style="margin-bottom: 24px; font-size: 20px;">User Journey Map</h3>
+    <div class="journey-map reveal">
+      <div class="journey-step">
+        <div class="step-label">Step 1 — Trigger</div>
+        <h4>Alex finishes a game (loss or close win)</h4>
+        <p>After the game, Alex wonders "Where did I go wrong?" and opens the analysis board.</p>
+        <div class="emotion">😐 Curious but slightly frustrated</div>
+      </div>
+      <div class="journey-step">
+        <div class="step-label">Step 2 — Current Experience</div>
+        <h4>Sees raw engine evaluation</h4>
+        <p>The analysis shows move 23 was a blunder (eval: -4.5). Best move was "Bd7". Alex doesn't understand why Bd7 is better — it looks passive.</p>
+        <div class="emotion">😕 Confused and overwhelmed</div>
+      </div>
+      <div class="journey-step">
+        <div class="step-label">Step 3 — Pain Point</div>
+        <h4>Gives up on learning from the game</h4>
+        <p>Without context, Alex closes the analysis. The same pattern will repeat in the next game. No improvement happens.</p>
+        <div class="emotion">😤 Frustrated → 📉 Churn risk</div>
+      </div>
+      <div class="journey-step">
+        <div class="step-label">Step 4 — With Grandmaster.AI</div>
+        <h4>Clicks "Explain My Blunder" ✨</h4>
+        <p>Alex sees: "Your knight moved to f6, but this left your bishop on c5 undefended. Bd7 would have protected it while preparing to castle. This is similar to a pattern in Fischer vs. Spassky 1972..."</p>
+        <div class="emotion">🤩 Enlightened → understands the concept</div>
+      </div>
+      <div class="journey-step">
+        <div class="step-label">Step 5 — Outcome</div>
+        <h4>Applies the lesson in the next game</h4>
+        <p>Alex recognizes a similar pattern and avoids the blunder. Rating increases. Session length grows. Retention improves.</p>
+        <div class="emotion">😊 Empowered → 🎯 Retained</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════ SECTION 2: TECHNICAL EXECUTION ═══════════════════ -->
+<section id="technical">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">02 — Technical Execution</span>
+      <h2>The "How" — Architecture & Trade-offs</h2>
+      <p>Building a lightweight prototype that demonstrates the core value proposition while making deliberate, documented trade-offs.</p>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="card reveal" style="margin-bottom: 24px;">
+      <h3 style="margin-bottom: 20px;">🛠 Technology Stack</h3>
+      <div class="stack-item">
+        <div class="stack-icon">🐍</div>
+        <div class="stack-info">
+          <strong>Python + FastAPI</strong>
+          <span>Backend API — async, type-safe, auto-documented with OpenAPI</span>
+        </div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon">♟</div>
+        <div class="stack-info">
+          <strong>python-chess + Stockfish</strong>
+          <span>PGN parsing, move validation, and engine analysis for blunder detection</span>
+        </div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon">🗄</div>
+        <div class="stack-info">
+          <strong>ChromaDB (Vector Database)</strong>
+          <span>Stores annotated chess positions as embeddings for semantic similarity search</span>
+        </div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon">💎</div>
+        <div class="stack-info">
+          <strong>Google Gemini API (Free Tier)</strong>
+          <span>Gemini 2.0 Flash for natural language explanation generation — 15 RPM, 1M tokens/day free</span>
+        </div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon">🖥</div>
+        <div class="stack-info">
+          <strong>Streamlit</strong>
+          <span>Rapid UI prototyping — interactive chess board, analysis cards, and chat-style explanations</span>
+        </div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon">🌐</div>
+        <div class="stack-info">
+          <strong>Chess.com Public API</strong>
+          <span>Fetches user's recent games in PGN format (no API key required)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Architecture -->
+    <div class="card reveal" style="margin-bottom: 24px;">
+      <h3 style="margin-bottom: 20px;">📐 System Architecture</h3>
+      <div class="arch-diagram">
+<pre>
+┌─────────────────────────────────────────────────────────────┐
+│                    Streamlit Frontend                        │
+│  ┌──────────┐  ┌────────────────┐  ┌─────────────────────┐  │
+│  │ Username  │  │  Interactive   │  │  AI Explanation     │  │
+│  │  Input    │  │  Chessboard    │  │  Panel (RAG)        │  │
+│  └─────┬────┘  └────────────────┘  └─────────────────────┘  │
+│        │                                                     │
+└────────┼─────────────────────────────────────────────────────┘
+         │  HTTP (POST /analyze)
+         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    FastAPI Backend                           │
+│                                                             │
+│  ① Chess.com API  →  ② Stockfish Analysis  →  ③ RAG Engine │
+│     (Fetch PGN)      (Find Blunder)           (Explain)     │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │                 RAG Pipeline                          │   │
+│  │                                                      │   │
+│  │  FEN + Features  →  ChromaDB Query  →  Top-K Matches │   │
+│  │       │                                     │        │   │
+│  │       └──────── Prompt Construction ────────┘        │   │
+│  │                        │                             │   │
+│  │                        ▼                             │   │
+│  │              Hugging Face LLM API                    │   │
+│  │              (Mistral-7B-Instruct)                   │   │
+│  │                        │                             │   │
+│  │                        ▼                             │   │
+│  │              ④ AI Guardrails                         │   │
+│  │              (Validate + Sanitize)                   │   │
+│  └──────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────┘
+</pre>
+      </div>
+    </div>
+
+    <!-- Pipeline Flow -->
+    <div class="card reveal" style="margin-bottom: 24px;">
+      <h3 style="margin-bottom: 20px;">🔄 Data Pipeline Flow</h3>
+      <ul class="info-list">
+        <li>
+          <span class="li-icon">①</span>
+          <span><strong>Fetch</strong> — Pull user's latest game from Chess.com public API (PGN format). No API key required. ~200ms latency.</span>
+        </li>
+        <li>
+          <span class="li-icon">②</span>
+          <span><strong>Analyze</strong> — Parse PGN with python-chess. Run Stockfish at depth 16 on each move. Identify the move with the largest centipawn loss (≥200cp = blunder). ~800ms for a 40-move game.</span>
+        </li>
+        <li>
+          <span class="li-icon">③</span>
+          <span><strong>Retrieve</strong> — Extract board features (material, king safety, pawn structure, themes). Query ChromaDB for the 3 most semantically similar annotated positions. ~50ms.</span>
+        </li>
+        <li>
+          <span class="li-icon">④</span>
+          <span><strong>Generate</strong> — Construct a RAG prompt with blunder details + retrieved context. Send to Gemini 2.0 Flash via Google AI API (free tier). ~1000ms.</span>
+        </li>
+        <li>
+          <span class="li-icon">⑤</span>
+          <span><strong>Validate</strong> — Run guardrails: check move legality, detect hallucinated pieces, verify position claims, enforce latency budget (≤2.5s). ~10ms.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Trade-off: RAG vs Fine-tuning -->
+    <div class="card reveal" style="margin-bottom: 24px;">
+      <h3 style="margin-bottom: 20px;">⚖️ Key Trade-off: RAG vs. Fine-Tuning</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 20px;">
+        We deliberately chose <strong style="color: var(--accent-tertiary);">Retrieval-Augmented Generation (RAG)</strong> 
+        over fine-tuning a custom model. Here's why:
+      </p>
+      <div style="overflow-x: auto;">
+        <table class="tradeoff-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>RAG Approach ✅</th>
+              <th>Fine-Tuning Approach</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Time to Market</strong></td>
+              <td class="winner">Days (plug into existing LLM)</td>
+              <td class="loser">Weeks–Months (data prep + training)</td>
+            </tr>
+            <tr>
+              <td><strong>Compute Cost</strong></td>
+              <td class="winner">$0 (free inference API tier)</td>
+              <td class="loser">$100s–$1000s (GPU hours)</td>
+            </tr>
+            <tr>
+              <td><strong>Knowledge Updates</strong></td>
+              <td class="winner">Add new annotations instantly</td>
+              <td class="loser">Requires retraining</td>
+            </tr>
+            <tr>
+              <td><strong>Hallucination Risk</strong></td>
+              <td class="winner">Grounded in retrieved context</td>
+              <td class="loser">Can fabricate chess knowledge</td>
+            </tr>
+            <tr>
+              <td><strong>Source Attribution</strong></td>
+              <td class="winner">Can cite retrieved sources</td>
+              <td class="loser">Black-box generation</td>
+            </tr>
+            <tr>
+              <td><strong>Accuracy (Deep)</strong></td>
+              <td class="loser">Limited by retrieval quality</td>
+              <td class="winner">Can learn chess-specific patterns deeply</td>
+            </tr>
+            <tr>
+              <td><strong>Latency</strong></td>
+              <td class="loser">~1.5s (retrieval + generation)</td>
+              <td class="winner">~0.5s (single forward pass)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-muted); font-size: 13px; margin-top: 16px;">
+        <em>Decision: RAG is optimal for prototype and MVP. Fine-tuning becomes viable at scale (>100K users) 
+        when the investment in training data curation and compute is justified by business metrics.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════ SECTION 3: AI EVALUATION ═══════════════════ -->
+<section id="evaluation">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">03 — AI Evaluation & Guardrails</span>
+      <h2>The "Nuance" — Optimizing for UX, Not Just Accuracy</h2>
+      <p>Engineers optimize for accuracy; PMs optimize for the user experience. This section defines how we measure "good" AI and handle edge cases.</p>
+    </div>
+
+    <!-- Evaluation Metrics -->
+    <div class="eval-grid reveal" style="margin-bottom: 32px;">
+      <div class="eval-card">
+        <div class="metric-label">Latency Budget</div>
+        <div class="metric-value green">≤ 2.5s</div>
+        <div class="metric-desc">End-to-end response time to maintain user flow. Beyond 3s, users lose engagement.</div>
+      </div>
+      <div class="eval-card">
+        <div class="metric-label">Blunder Detection Accuracy</div>
+        <div class="metric-value purple">95%+</div>
+        <div class="metric-desc">Agreement with Stockfish at depth 20. Validated against Chess.com's game review.</div>
+      </div>
+      <div class="eval-card">
+        <div class="metric-label">Explanation Helpfulness</div>
+        <div class="metric-value blue">4.2/5.0</div>
+        <div class="metric-desc">Target user rating. Measured via thumbs-up/down + optional survey after explanation.</div>
+      </div>
+      <div class="eval-card">
+        <div class="metric-label">Hallucination Rate</div>
+        <div class="metric-value orange">< 5%</div>
+        <div class="metric-desc">% of responses referencing illegal moves or non-existent pieces. Caught by guardrails.</div>
+      </div>
+    </div>
+
+    <!-- Guardrails -->
+    <h3 class="reveal" style="margin-bottom: 24px; font-size: 20px;">🛡 AI Guardrail System</h3>
+    <div class="guardrail-list reveal">
+      <div class="guardrail-item">
+        <div class="guardrail-icon" style="background: rgba(16, 185, 129, 0.15);">✅</div>
+        <div class="guardrail-content">
+          <h4>Move Legality Validation</h4>
+          <p>Every move mentioned in the LLM's explanation is validated against the actual position using python-chess. If the LLM suggests an illegal move, it's flagged and the explanation is regenerated or sanitized.</p>
+        </div>
+      </div>
+      <div class="guardrail-item">
+        <div class="guardrail-icon" style="background: rgba(59, 130, 246, 0.15);">🔍</div>
+        <div class="guardrail-content">
+          <h4>Piece Existence Check</h4>
+          <p>References to pieces (e.g., "your queen") are cross-validated against the actual board state. If the LLM mentions a piece that doesn't exist in the position, a warning flag is raised.</p>
+        </div>
+      </div>
+      <div class="guardrail-item">
+        <div class="guardrail-icon" style="background: rgba(245, 158, 11, 0.15);">⏱</div>
+        <div class="guardrail-content">
+          <h4>Latency Budget Enforcement</h4>
+          <p>Every request is timed against the 2.5s budget. If the LLM takes too long, a pre-computed template response is served instead. Users always get an answer — never a timeout.</p>
+        </div>
+      </div>
+      <div class="guardrail-item">
+        <div class="guardrail-icon" style="background: rgba(239, 68, 68, 0.15);">🚫</div>
+        <div class="guardrail-content">
+          <h4>Prompt Injection Protection</h4>
+          <p>User inputs (Chess.com username, PGN) are sanitized before being included in the LLM prompt. The system prompt is isolated and never exposed in the response.</p>
+        </div>
+      </div>
+      <div class="guardrail-item">
+        <div class="guardrail-icon" style="background: rgba(168, 85, 247, 0.15);">📝</div>
+        <div class="guardrail-content">
+          <h4>Response Length & Quality</h4>
+          <p>Responses are capped at 350 words. If the LLM generates an empty or nonsensical response (< 20 characters), a fallback template-based explanation is provided. Quality > silence.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- How We Handle Hallucinations -->
+    <div class="card reveal" style="margin-top: 32px;">
+      <h3 style="margin-bottom: 16px;">🧠 Hallucination Mitigation Strategy</h3>
+      <ul class="info-list">
+        <li>
+          <span class="li-icon">1️⃣</span>
+          <span><strong>Grounding via RAG</strong> — By retrieving actual historical commentary before generation, we significantly reduce the LLM's tendency to fabricate chess knowledge. The prompt explicitly instructs: "Do NOT suggest moves beyond what is provided."</span>
+        </li>
+        <li>
+          <span class="li-icon">2️⃣</span>
+          <span><strong>Post-generation validation</strong> — Every response passes through the guardrail pipeline (move legality, piece existence, claim verification) before reaching the user.</span>
+        </li>
+        <li>
+          <span class="li-icon">3️⃣</span>
+          <span><strong>Graceful degradation</strong> — If guardrails detect critical issues, the system falls back to a template-based explanation rather than showing potentially incorrect AI output.</span>
+        </li>
+        <li>
+          <span class="li-icon">4️⃣</span>
+          <span><strong>User feedback loop</strong> — Thumbs-up/down on each explanation feeds into a monitoring dashboard. Explanations with > 30% negative feedback are flagged for human review.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════ SECTION 4: GO-TO-MARKET ═══════════════════ -->
+<section id="gtm">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">04 — Analytics & Go-To-Market</span>
+      <h2>The "Business Impact" — Driving Value</h2>
+      <p>Showing that this AI feature drives measurable business value through engagement, retention, and premium conversion.</p>
+    </div>
+
+    <!-- North Star Metric -->
+    <div class="north-star reveal">
+      <div class="ns-label">⭐ North Star Metric</div>
+      <div class="ns-value">+15%</div>
+      <div class="ns-desc">Increase in average session length for users who interact with "Explain My Blunder"</div>
+    </div>
+
+    <!-- Supporting Metrics -->
+    <div class="cards-grid cols-3 reveal" style="margin-bottom: 40px;">
+      <div class="card">
+        <div class="card-icon green">📈</div>
+        <h3>Feature Adoption</h3>
+        <p>% of post-game users who click "Explain My Blunder". Target: 35% click-through within first month.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon blue">📖</div>
+        <h3>Read-Through Rate</h3>
+        <p>% of users who read the full AI explanation (scroll past 80%). Target: 60% read-through.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon purple">🔄</div>
+        <h3>Repeat Usage</h3>
+        <p>% of users who use the feature in 3+ games within a week. Target: 40% repeat usage.</p>
+      </div>
+    </div>
+
+    <!-- Funnel -->
+    <div class="card reveal" style="margin-bottom: 32px;">
+      <h3 style="margin-bottom: 24px;">📊 Feature Funnel (Simulated — Week 1)</h3>
+      <div class="funnel">
+        <div class="funnel-step">
+          <div class="funnel-bar" style="width: 100%;"><span>100,000</span></div>
+          <div class="funnel-label">Games Completed</div>
+        </div>
+        <div class="funnel-step">
+          <div class="funnel-bar" style="width: 72%;"><span>72,000</span></div>
+          <div class="funnel-label">View Post-Game Analysis</div>
+        </div>
+        <div class="funnel-step">
+          <div class="funnel-bar" style="width: 35%;"><span>35,200</span></div>
+          <div class="funnel-label">Click "Explain My Blunder"</div>
+        </div>
+        <div class="funnel-step">
+          <div class="funnel-bar" style="width: 21%;"><span>21,100</span></div>
+          <div class="funnel-label">Read Full Explanation</div>
+        </div>
+        <div class="funnel-step">
+          <div class="funnel-bar" style="width: 14%;"><span>14,000</span></div>
+          <div class="funnel-label">Rate Explanation (👍/👎)</div>
+        </div>
+        <div class="funnel-step">
+          <div class="funnel-bar" style="width: 8%;"><span>8,400</span></div>
+          <div class="funnel-label">Use Feature Again (Same Session)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rollout Plan -->
+    <div class="card reveal" style="margin-bottom: 32px;">
+      <h3 style="margin-bottom: 24px;">🚀 Rollout Strategy</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-phase">
+            <div class="phase-num">1</div>
+            <div class="phase-label">Week 1-2</div>
+          </div>
+          <div class="timeline-content">
+            <h4>Internal Alpha</h4>
+            <p>Deploy to 50 internal testers. Measure latency, hallucination rate, and gather qualitative feedback. Iterate on prompt engineering and guardrails.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">
+            <div class="phase-num">2</div>
+            <div class="phase-label">Week 3-4</div>
+          </div>
+          <div class="timeline-content">
+            <h4>Closed Beta (1% rollout)</h4>
+            <p>A/B test with 1% of post-game analysis users. Measure session length, feature adoption, and read-through rate. Statistical significance: p < 0.05.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">
+            <div class="phase-num">3</div>
+            <div class="phase-label">Week 5-8</div>
+          </div>
+          <div class="timeline-content">
+            <h4>Open Beta (10% → 50%)</h4>
+            <p>Gradual rollout with feature flags. Monitor latency SLOs, user satisfaction, and infrastructure costs. Scale ChromaDB and LLM infrastructure.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">
+            <div class="phase-num">4</div>
+            <div class="phase-label">Week 9+</div>
+          </div>
+          <div class="timeline-content">
+            <h4>General Availability</h4>
+            <p>100% rollout. Premium tier: unlimited explanations. Free tier: 3 explanations/day. Monitor North Star metric and iterate on explanation quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A/B Test Preview -->
+    <div class="card reveal" style="margin-bottom: 32px;">
+      <h3 style="margin-bottom: 16px;">🧪 A/B Test Design</h3>
+      <div class="cards-grid cols-2" style="margin-bottom: 16px;">
+        <div class="eval-card">
+          <div class="metric-label">Control Group</div>
+          <div class="metric-value" style="font-size: 24px; color: var(--text-secondary);">Standard Analysis</div>
+          <div class="metric-desc">Current post-game review with raw Stockfish evaluations only</div>
+        </div>
+        <div class="eval-card">
+          <div class="metric-label">Treatment Group</div>
+          <div class="metric-value" style="font-size: 24px; color: var(--accent-secondary);">+ Grandmaster.AI</div>
+          <div class="metric-desc">Standard analysis + "Explain My Blunder" button with RAG explanations</div>
+        </div>
+      </div>
+      <ul class="info-list">
+        <li><span class="li-icon">📏</span><span><strong>Primary Metric</strong>: Average session length (minutes)</span></li>
+        <li><span class="li-icon">📐</span><span><strong>Secondary Metrics</strong>: Games played per session, 7-day retention, premium conversion</span></li>
+        <li><span class="li-icon">📊</span><span><strong>Sample Size</strong>: 50,000 users per group (for 80% power, α=0.05)</span></li>
+        <li><span class="li-icon">⏰</span><span><strong>Duration</strong>: 2 weeks minimum (to capture weekend patterns)</span></li>
+      </ul>
+    </div>
+
+    <!-- Dashboard Link -->
+    <div class="card reveal" style="text-align: center; padding: 40px;">
+      <h3 style="margin-bottom: 12px;">📊 View Interactive Analytics Dashboard</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">
+        A simulated Power BI-style dashboard showing mock A/B test results, 
+        engagement funnels, and revenue impact projections.
+      </p>
+      <a href="../dashboard/index.html" 
+         style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; 
+                background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); 
+                color: white; text-decoration: none; border-radius: 100px; font-weight: 600; 
+                font-size: 15px; transition: transform 0.2s, box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(124,58,237,0.4)'"
+         onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        Open Dashboard →
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p>
+      ♟ Grandmaster.AI — PRD v1.0 · Built as an AI Product Management portfolio piece<br>
+      <span style="color: var(--text-muted);">Stack: Python · FastAPI · Streamlit · ChromaDB · Google Gemini · Stockfish</span>
+    </p>
+  </div>
+</footer>
+
+</div>
+
+<!-- ═══════════════════ SCROLL REVEAL SCRIPT ═══════════════════ -->
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  // Active nav link tracking
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

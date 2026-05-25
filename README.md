@@ -1,3 +1,4 @@
+
 # ♟ Grandmaster.AI — Context-Aware Blunder Recovery
 
 > Transforming cryptic engine evaluations into human-readable, actionable chess insights powered by Retrieval-Augmented Generation (RAG).
@@ -162,3 +163,6 @@ User → Streamlit → FastAPI → Chess.com API (fetch PGN)
 ## 📝 License
 
 This is a portfolio project. Use freely for learning and reference.
+=======
+# Chess-AI-PM
+

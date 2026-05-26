@@ -1,2 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual env
+venv/
 .env
+
+# Testing
+.coverage
+.pytest_cache/
+
+# Mac
 .DS_Store
+
+# ChromaDB / databases
+*.sqlite3
+*.bin
+
+# IDE
+.vscode/
+.idea/

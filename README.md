@@ -11,10 +11,10 @@
 
 ## 📸 App Screenshots
 
-![Main Interface](assets/app_main_interface.png)
+![Main Interface](assets/app_main_interface1.png)
 *The main analysis interface showing the RAG explanation and the Learning Loop Tracker in action.*
 
-![Fallback Interface](assets/app_fallback_mode.png)
+![Fallback Interface](assets/app_fallback_mode1.png)
 *The system elegantly handling a Gemini API rate limit using the regex fallback system.*
 
 ## 🎯 What Is This?

@@ -81,7 +81,16 @@ def parse_pgn(pgn_string: str) -> Optional[chess.pgn.Game]:
     """Parse a PGN string into a python-chess Game object."""
     try:
         pgn_io = io.StringIO(pgn_string)
-        game = chess.pgn.read_game(pgn_io)
+        errors = []
+        
+        class ErrorCatchingBuilder(chess.pgn.GameBuilder):
+            def handle_error(self, error):
+                errors.append(str(error))
+                super().handle_error(error)
+                
+        game = chess.pgn.read_game(pgn_io, Visitor=ErrorCatchingBuilder)
+        if errors:
+            logger.warning(f"PGN parse warnings: {errors}")
         return game
     except Exception as e:
         logger.error(f"Failed to parse PGN: {e}")

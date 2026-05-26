@@ -220,8 +220,8 @@ def retrieve_similar_positions(
                 results["metadatas"][0],
                 results["distances"][0],
             )):
-                # Convert distance to similarity score (ChromaDB uses L2 by default)
-                similarity = max(0, 1 - (distance / 10))  # Normalize
+                # Convert distance to similarity score (ChromaDB uses cosine distance)
+                similarity = max(0, 1 - (distance / 2))  # Normalize
 
                 contexts.append(RetrievedContext(
                     source=meta.get("source", "Unknown"),

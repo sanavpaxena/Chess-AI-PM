@@ -520,6 +520,19 @@ def display_results(col_left, col_right):
         </div>
         """, unsafe_allow_html=True)
 
+        # Learning Loop Tracker
+        learning_loop_feedback = result.get("learning_loop_feedback")
+        if learning_loop_feedback:
+            st.markdown("#### 🔄 Learning Loop Tracker")
+            is_success = "avoided" in learning_loop_feedback.lower() or "track this pattern" in learning_loop_feedback.lower()
+            icon = "✅" if is_success else "⚠️"
+            color = "#10b981" if is_success else "#f59e0b"
+            st.markdown(f"""
+            <div class="analysis-card" style="border-left: 3px solid {color};">
+                <strong>{icon} {learning_loop_feedback}</strong>
+            </div>
+            """, unsafe_allow_html=True)
+
         # Retrieved contexts
         if contexts:
             st.markdown("#### 📚 Historical References")

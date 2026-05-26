@@ -39,6 +39,7 @@ from app.rag_engine import (
     is_llm_available,
 )
 from app.guardrails import sanitize_explanation, enforce_latency_budget
+from app.learning_loop import init_db, store_blunder_pattern
 
 load_dotenv()
 
@@ -59,6 +60,8 @@ async def lifespan(app: FastAPI):
     try:
         init_vector_db()
         logger.info("✅ Vector database initialized")
+        init_db()
+        logger.info("✅ Learning Loop database initialized")
     except Exception as e:
         logger.warning(f"⚠️ Vector DB initialization issue: {e}")
     yield
@@ -179,7 +182,34 @@ async def analyze_game(request: AnalysisRequest):
             raw_explanation, blunder.fen_before
         )
 
-        # Step 7: Check latency
+        # Step 7: The Learning Loop (Product Feature)
+        blunder_theme = similar_contexts[0].theme if similar_contexts else "general"
+        store_blunder_pattern(request.username, blunder_theme)
+        
+        learning_loop_msg = "This is your most recent game. We'll track this pattern and check your next games tomorrow!"
+        if request.game_index > 0:
+            next_games = games[max(0, request.game_index - 3) : request.game_index]
+            repeated = False
+            for next_g in next_games:
+                try:
+                    next_game_obj = parse_pgn(next_g.get("pgn", ""))
+                    next_blunder = find_biggest_blunder(next_game_obj, depth=8, player_color=player_color)
+                    if next_blunder:
+                        next_features = get_board_features(next_blunder.fen_before)
+                        next_contexts = retrieve_similar_positions(next_blunder, next_features, k=1)
+                        if next_contexts and next_contexts[0].theme == blunder_theme and blunder_theme != "general":
+                            repeated = True
+                            break
+                except Exception as e:
+                    logger.error(f"Learning loop check failed for next game: {e}")
+                    pass
+            
+            if repeated:
+                learning_loop_msg = "You made this mistake again in your next game — want to retry?"
+            else:
+                learning_loop_msg = f"You avoided this pattern in your next {len(next_games)} games ✓"
+
+        # Step 8: Check latency
         elapsed_ms, within_budget = enforce_latency_budget(start_time, MAX_LATENCY_MS)
 
         return AnalysisResponse(
@@ -191,6 +221,7 @@ async def analyze_game(request: AnalysisRequest):
             latency_budget_ms=MAX_LATENCY_MS,
             within_budget=within_budget,
             guardrail_flags=guardrail_flags,
+            learning_loop_feedback=learning_loop_msg,
         )
 
     except HTTPException:

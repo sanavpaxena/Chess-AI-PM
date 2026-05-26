@@ -82,6 +82,9 @@ class AnalysisResponse(BaseModel):
         default_factory=list,
         description="Any guardrail warnings triggered during generation"
     )
+    learning_loop_feedback: Optional[str] = Field(
+        None, description="Feedback from checking subsequent games for the same blunder pattern"
+    )
 
 
 class HealthResponse(BaseModel):

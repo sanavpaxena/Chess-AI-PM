@@ -9,6 +9,14 @@
 ![ChromaDB](https://img.shields.io/badge/ChromaDB-0.5-orange)
 ![Gemini](https://img.shields.io/badge/Gemini_API-Free-blue)
 
+## 📸 App Screenshots
+
+![Main Interface](/Users/panav/.gemini/antigravity-ide/brain/60ae9137-85a6-4770-8c05-87c5ef013e93/app_main_interface_1779787076329.png)
+*The main analysis interface showing the RAG explanation and the Learning Loop Tracker in action.*
+
+![Fallback Interface](/Users/panav/.gemini/antigravity-ide/brain/60ae9137-85a6-4770-8c05-87c5ef013e93/app_fallback_mode_1779787099495.png)
+*The system elegantly handling a Gemini API rate limit using the regex fallback system.*
+
 ## 🎯 What Is This?
 
 **Grandmaster.AI** is an AI Product Management portfolio project that demonstrates:
@@ -160,9 +168,31 @@ User → Streamlit → FastAPI → Chess.com API (fetch PGN)
 - **Hallucination Rate**: < 5%
 - **Latency Budget**: ≤ 2.5 seconds
 
+## 🧠 The decisions that shaped this
+
+**RAG vs. Fine-tuning**
+When choosing how to generate explanations, I opted for Retrieval-Augmented Generation (RAG) over fine-tuning a custom chess model. While fine-tuning might offer slightly better domain-specific fluency, it requires significant upfront investment in data curation, compute, and maintenance. RAG allows us to leverage a cheap, high-tier foundational model (Gemini Flash) while dynamically injecting verified, high-quality historical commentary. This was a build-vs-buy business decision to get to market in days rather than months, with zero recurring compute training costs. **The trade-off I accepted was a reliance on external API uptime over owning the entire model stack.**
+
+**The Fallback Explanation System**
+If the Gemini API fails, times out, or the key is invalid, the system automatically falls back to a regex-based template explanation. In an ideal world, the AI would gracefully retry, but in a live demo or a free-tier MVP, intermittent failures are guaranteed. I prioritized immediate user feedback over perfect, nuanced analysis. A generic "you hung your knight" message keeps the user engaged, whereas an endless loading spinner or a 500 Error causes immediate churn. **The trade-off I accepted was reduced capability (generic explanations) in exchange for absolute reliability during failure states.**
+
+**Latency Budgets & Engine Depth**
+The system uses Stockfish at `depth=12` for its initial blunder scan instead of the standard `depth=20+`. While deeper analysis might catch subtle grandmaster-level positional inaccuracies, it also takes 3-5 seconds per move. Our target persona (1000-1500 Elo) blunders in obvious, tactical ways that `depth=12` easily catches in milliseconds. By capping the engine depth, we reserve our strict 2.5-second latency budget for the RAG retrieval and LLM generation—the actual differentiator of the product. **The trade-off I accepted was theoretical analytical perfection in favor of a snappy, responsive user experience.**
+
+## 🗺 Prioritized Backlog (v2/v3)
+
+**Pattern-based Spaced Repetition** 
+- **Why now or why not:** High value, but depends on our newly introduced Learning Loop. We need statistically significant data on a user's repeated mistakes first. 
+- **What it unlocks:** Transforms the product from an "analysis tool" into an active "training regimen," drastically improving Day 30 retention.
+
+**Multi-game Pattern Analysis**
+- **Why now or why not:** Planned for next quarter. Currently, we analyze isolated games. Scanning 10-20 games simultaneously requires a major backend refactor (async job queues) but addresses the core problem of users hitting Elo plateaus.
+- **What it unlocks:** Deep personalization, allowing us to say "You lose 60% of your games when facing the Sicilian Defense."
+
+**Mobile Push Notifications (Post-Game Summary)**
+- **Why now or why not:** Hold. While this offers high reach and re-engagement, it carries a massive risk of notification fatigue, especially when a user is already tilted from a loss.
+- **What it unlocks:** Immediate re-engagement when they close the Chess.com app, pulling them into our ecosystem.
+
 ## 📝 License
 
 This is a portfolio project. Use freely for learning and reference.
-=======
-# Chess-AI-PM
-
